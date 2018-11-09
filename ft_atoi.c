@@ -6,7 +6,7 @@
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/06 13:11:41 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/09 16:22:28 by tamigore         ###   ########.fr       */
+/*   Updated: 2018/11/09 19:26:23 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_atoi(char *str)
 {
 	int i;
 	int neg;
-	int nb;
+	unsigned int nb;
 
 	i = 0;
 	neg = 1;
