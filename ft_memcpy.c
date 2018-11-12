@@ -6,7 +6,7 @@
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 14:21:57 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/09 14:31:24 by tamigore         ###   ########.fr       */
+/*   Updated: 2018/11/12 15:44:59 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	int i;
 
 	i = 0;
-	while (dst[i] && src[i] && i < n)
+	while (i < (int)n)
 	{
-		&dst[i] = &src[i];
+		((char *)dst)[i] = ((char *)src)[i];
 		i++;
 	}
 	return (dst);

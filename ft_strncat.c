@@ -6,7 +6,7 @@
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 09:58:06 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/09 16:38:26 by tamigore         ###   ########.fr       */
+/*   Updated: 2018/11/12 13:20:16 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strncat(char *s1, const char *s2, size_t n)
 
 	i = ft_strlen(s1);
 	j = 0;
-	while (s2[j] && j < (int) n)
+	while (s2[j] && j < (int)n)
 		s1[i++] = s2[j++];
 	s1[i] = '\0';
 	return (s1);

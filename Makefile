@@ -6,7 +6,7 @@
 #    By: tamigore <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 15:04:29 by tamigore          #+#    #+#              #
-#    Updated: 2018/11/09 18:21:02 by tamigore         ###   ########.fr        #
+#    Updated: 2018/11/12 14:47:25 by tamigore         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRC/M = ft_memccpy.c 	\
 		ft_memset.c
 
 SRC/O = ft_atoi.c		\
+		ft_bzero.c		\
 		ft_tolower.c	\
 		ft_toupper.c
 
@@ -31,31 +32,42 @@ SRC/I = ft_isalnum.c	\
 		ft_isprint.c
 
 SRC/P = ft_putchar.c	\
-		ft_putstr.c
+		ft_putstr.c		\
+		ft_putendl.c	\
+		ft_putnbr.c
 
-SRC/S = ft_strcat.c		\
-		ft_strcmp.c		\
+SRC/S = ft_strlen.c		\
 		ft_strdup.c		\
-		ft_strlen.c		\
-		ft_strncmp.c	\
-		ft_strnstr.c	\
-		ft_strstr.c		\
-		ft_strchr.c		\
 		ft_strcpy.c		\
-		ft_strlcat.c	\
-		ft_strncat.c	\
 		ft_strncpy.c	\
-		ft_strrchr.c
+		ft_strcat.c		\
+		ft_strncat.c	\
+		ft_strlcat.c	\
+		ft_strstr.c		\
+		ft_strnstr.c	\
+		ft_strchr.c		\
+		ft_strrchr.c	\
+		ft_strcmp.c		\
+		ft_strncmp.c	\
+		ft_strequ.c		\
+		ft_strnequ.c	\
+		ft_strmap.c		\
+		ft_strmapi.c	\
+		ft_striter.c	\
+		ft_striteri.c	\
+		ft_strnew.c		\
+		ft_strdel.c		\
+		ft_strclr.c
 
 INC = libft.h
-SRC = $(SRC/P) $(SRC/O) $(SRC/I) $(SRC/S)
+SRC = $(SRC/P) $(SRC/O) $(SRC/I) $(SRC/S) $(SRC/M)
 OBJ = $(SRC:.c=.o)
-NAME = so
+NAME = libft.a
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	ar rc libft.so $(OBJ)
+	ar rc $(NAME) $(OBJ)
 
 $(OBJ) :
 	$(CC) $(FLAGS) -c $(SRC)
