@@ -50,12 +50,12 @@ SRC/S = ft_strcat.c		\
 INC = libft.h
 SRC = $(SRC/P) $(SRC/O) $(SRC/I) $(SRC/S)
 OBJ = $(SRC:.c=.o)
-NAME = libft.a
+NAME = so
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	ar rc $(NAME) $(OBJ)
+	ar rc libft.so $(OBJ)
 
 $(OBJ) :
 	$(CC) $(FLAGS) -c $(SRC)
