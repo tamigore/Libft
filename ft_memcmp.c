@@ -6,7 +6,7 @@
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 13:30:19 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/12 15:43:22 by tamigore         ###   ########.fr       */
+/*   Updated: 2018/11/14 10:13:26 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int i;
+	size_t	i;
 
-	i = ft_strncmp((const char *)s1, (const char *)s2, n);
-	return (i);
+	i = 0;
+	while (((unsigned char *)s1)[i] == ((unsigned char *)s2)[i] && i < n)
+		i++;
+	if (i == n)
+		return (0);
+	return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
 }

@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 19:10:49 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/14 12:29:01 by tamigore         ###   ########.fr       */
+/*   Created: 2018/11/14 12:01:39 by tamigore          #+#    #+#             */
+/*   Updated: 2018/11/14 12:59:38 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+char	*ft_strrev(char *s)
 {
-	write(1, s, ft_strlen(s));
+	int		i;
+	int		j;
+	char	c;
+
+	i = 0;
+	j = ft_strlen(s) - 1;
+	while (i <= j)
+	{
+		c = s[i];
+		s[i++] = s[j];
+		s[j--] = c;
+	}
+	return (s);
 }
