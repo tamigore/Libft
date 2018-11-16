@@ -6,7 +6,7 @@
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 18:06:22 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/14 18:49:38 by tamigore         ###   ########.fr       */
+/*   Updated: 2018/11/16 15:26:35 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 {
 	t_list	*p;
 
+	if (!(p = malloc(sizeof(*p))))
+		return (NULL);
 	if (content == NULL)
 	{
 		p->content = NULL;
@@ -23,11 +25,11 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	}
 	else
 	{
-		if (!(p = malloc(content_size)))
+		if (!(p->content = malloc(content_size)))
 			return (NULL);
 		p->content_size = content_size;
-		p->content = content;
+		p->content = (void *)content;
 	}
-	p->next == NULL;
+	p->next = NULL;
 	return (p);
 }

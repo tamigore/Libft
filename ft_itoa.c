@@ -6,39 +6,28 @@
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 20:05:26 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/14 18:29:22 by tamigore         ###   ########.fr       */
+/*   Updated: 2018/11/16 11:27:29 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_unit(char *p, int nb, int n)
+static int		ft_unit(unsigned int nb)
 {
-	int temp;
 	int unit;
 
-	temp = 1;
 	unit = 0;
-	while (temp <= nb)
-	{
-		temp *= 10;
-		unit++;
-	}
 	if (nb == 0)
-	{
-		if (!(p = (char *)malloc(2)))
-			return (-1);
-		p[0] = '0';
-		p[1] = '\0';
-		return (0);
-	}
-	if (n < 0)
 		unit++;
+	while (nb > 0)
+	{
+		nb /= 10;
+		unit++;
+	}
 	return (unit);
 }
 
 static	char	*ft_strrev(char *s)
-	}
 {
 	int		i;
 	int		j;
@@ -46,7 +35,7 @@ static	char	*ft_strrev(char *s)
 
 	i = 0;
 	j = ft_strlen(s) - 1;
-	while (i <= j)
+	while (i < j)
 	{
 		c = s[i];
 		s[i++] = s[j];
@@ -67,9 +56,8 @@ char			*ft_itoa(int n)
 		nb = -n;
 	else
 		nb = n;
-	if ((unit = ft_unit(p, nb, n)) == 0)
-		return (p);
-	if (!(p = (char *)malloc(unit + 1)))
+	unit = ft_unit(nb);
+	if (!(p = (char *)malloc(unit + 1 + NEG(n))))
 		return (NULL);
 	while (unit > 0)
 	{
@@ -83,10 +71,3 @@ char			*ft_itoa(int n)
 	p = ft_strrev(p);
 	return (p);
 }
-/*
-**int main()
-**{
-**	printf("%s", ft_itoa(-123456));
-**	return (0);
-**}
-*/

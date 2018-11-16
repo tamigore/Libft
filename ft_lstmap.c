@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 17:54:06 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/16 15:54:00 by tamigore         ###   ########.fr       */
+/*   Created: 2018/11/16 14:06:18 by tamigore          #+#    #+#             */
+/*   Updated: 2018/11/16 14:31:41 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	size_t	i;
-	char	*p;
+	t_list *p;
 
-	i = 0;
-	if (!s)
+	if (!(p = malloc(sizeof(*p))))
 		return (NULL);
-	if (!(p = (char *)malloc(len + 1)))
-		return (NULL);
-	while (i < len)
-		p[i++] = s[start++];
-	p[i] = '\0';
+	while (lst->next != NULL)
+	{
+		p = (*f)(lst);
+		p = lst->next;
+		lst = lst->next;
+	}
 	return (p);
 }

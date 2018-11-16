@@ -6,7 +6,7 @@
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 18:28:00 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/14 19:35:56 by tamigore         ###   ########.fr       */
+/*   Updated: 2018/11/16 16:04:12 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ char			**ft_strsplit(char const *s, char c)
 
 	i = 0;
 	j = 0;
+	if (!s)
+		return (NULL);
 	while (s[i])
 	{
 		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
@@ -82,15 +84,3 @@ char			**ft_strsplit(char const *s, char c)
 	ft_filtab(tab, s, c);
 	return (tab);
 }
-/*
-**int main()
-**{
-**	char **tab = ft_strsplit(" h ho3yt823yt8t;few   yo! to", ' ');
-**	int i;
-**
-**	i = 0;
-**	while (tab[i])
-**		ft_putendl(tab[i++]);
-**	return (0);
-**}
-*/
