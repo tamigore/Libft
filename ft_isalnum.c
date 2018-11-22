@@ -6,7 +6,7 @@
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 11:46:22 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/09 15:42:18 by tamigore         ###   ########.fr       */
+/*   Updated: 2018/11/19 11:09:57 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 int		ft_isalnum(int c)
 {
 	if (ft_isalpha(c) || ft_isdigit(c))
-		return (c);
+		return (1);
 	return (0);
 }

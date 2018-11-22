@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 14:51:10 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/19 16:25:16 by tamigore         ###   ########.fr       */
+/*   Created: 2018/11/19 12:40:09 by tamigore          #+#    #+#             */
+/*   Updated: 2018/11/19 13:02:26 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_swap(char *s1, char *s2)
 {
-	size_t	i;
+	char	p;
 
-	i = 0;
-	while (i < n)
-	{
-		if (((unsigned char *)s)[i] == (unsigned char)c)
-			return ((void *)&s[i]);
-		i++;
-	}
-	return (NULL);
+	p = *s1;
+	*s1 = *s2;
+	*s2 = p;
 }

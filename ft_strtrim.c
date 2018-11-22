@@ -6,11 +6,12 @@
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 18:13:32 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/16 10:23:27 by tamigore         ###   ########.fr       */
+/*   Updated: 2018/11/19 17:07:46 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strtrim(char const *s)
 {
@@ -21,6 +22,8 @@ char	*ft_strtrim(char const *s)
 
 	i = 0;
 	n = 0;
+	if (!s)
+		return (NULL);
 	j = ft_strlen(s) - 1;
 	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
 		i++;

@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_puttab.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 14:51:10 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/19 16:25:16 by tamigore         ###   ########.fr       */
+/*   Created: 2018/11/19 14:27:47 by tamigore          #+#    #+#             */
+/*   Updated: 2018/11/19 14:37:54 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_puttab(char **tab)
 {
-	size_t	i;
+	int x;
 
-	i = 0;
-	while (i < n)
+	x = 0;
+	while (tab[x])
 	{
-		if (((unsigned char *)s)[i] == (unsigned char)c)
-			return ((void *)&s[i]);
-		i++;
+		ft_putstr(tab[x++]);
+		ft_putchar('\n');
 	}
-	return (NULL);
 }

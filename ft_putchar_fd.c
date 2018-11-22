@@ -6,11 +6,12 @@
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/14 10:24:25 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/14 10:26:01 by tamigore         ###   ########.fr       */
+/*   Updated: 2018/11/19 17:00:42 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 void	ft_putchar_fd(char c, int fd)
 {

@@ -6,7 +6,7 @@
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 14:01:59 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/16 14:32:30 by tamigore         ###   ########.fr       */
+/*   Updated: 2018/11/16 21:37:07 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	while (lst->next != NULL)
+	if (!lst)
+		return ;
+	while (lst != NULL)
 	{
 		(*f)(lst);
 		lst = lst->next;
 	}
-	(*f)(lst);
 }

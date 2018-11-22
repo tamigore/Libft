@@ -6,7 +6,7 @@
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/16 12:10:41 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/16 14:35:50 by tamigore         ###   ########.fr       */
+/*   Updated: 2018/11/16 21:35:23 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 void	ft_lstadd(t_list **alst, t_list *new)
 {
-	new->next = (*alst)->next;
+	if (alst == NULL)
+		return ;
+	new->next = *alst;
+	*alst = new;
 }

@@ -6,11 +6,12 @@
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 18:28:00 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/16 16:04:12 by tamigore         ###   ########.fr       */
+/*   Updated: 2018/11/19 17:08:29 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static	char	**ft_malloctab(char **tab, const char *s, char c)
 {
@@ -34,7 +35,8 @@ static	char	**ft_malloctab(char **tab, const char *s, char c)
 				return (NULL);
 			x++;
 		}
-		i++;
+		if (s[i])
+			i++;
 	}
 	return (tab);
 }
@@ -56,7 +58,8 @@ static	void	ft_filtab(char **tab, const char *s, char c)
 				tab[x][j++] = s[i++];
 			tab[x++][j] = '\0';
 		}
-		i++;
+		if (s[i])
+			i++;
 	}
 	tab[x] = NULL;
 }

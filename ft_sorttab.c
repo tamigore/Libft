@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_sorttab.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 14:51:10 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/19 16:25:16 by tamigore         ###   ########.fr       */
+/*   Created: 2018/11/19 15:31:54 by tamigore          #+#    #+#             */
+/*   Updated: 2018/11/19 15:59:49 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_sorttab(char **tab)
 {
-	size_t	i;
+	int		x;
+	char	*p;
 
-	i = 0;
-	while (i < n)
+	x = 0;
+	while (tab[x + 1] != 0)
 	{
-		if (((unsigned char *)s)[i] == (unsigned char)c)
-			return ((void *)&s[i]);
-		i++;
+		if (ft_strcmp(tab[x], tab[x + 1]) > 0)
+		{
+			p = tab[x];
+			tab[x] = tab[x + 1];
+			tab[x + 1] = p;
+			x = 0;
+		}
+		else
+			x++;
 	}
-	return (NULL);
 }

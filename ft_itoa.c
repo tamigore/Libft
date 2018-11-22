@@ -6,13 +6,21 @@
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 20:05:26 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/16 11:27:29 by tamigore         ###   ########.fr       */
+/*   Updated: 2018/11/19 16:56:17 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-static int		ft_unit(unsigned int nb)
+static	int		ft_neg(int n)
+{
+	if (n < 0)
+		return (1);
+	return (0);
+}
+
+static	int		ft_unit(unsigned int nb)
 {
 	int unit;
 
@@ -25,23 +33,6 @@ static int		ft_unit(unsigned int nb)
 		unit++;
 	}
 	return (unit);
-}
-
-static	char	*ft_strrev(char *s)
-{
-	int		i;
-	int		j;
-	char	c;
-
-	i = 0;
-	j = ft_strlen(s) - 1;
-	while (i < j)
-	{
-		c = s[i];
-		s[i++] = s[j];
-		s[j--] = c;
-	}
-	return (s);
 }
 
 char			*ft_itoa(int n)
@@ -57,7 +48,7 @@ char			*ft_itoa(int n)
 	else
 		nb = n;
 	unit = ft_unit(nb);
-	if (!(p = (char *)malloc(unit + 1 + NEG(n))))
+	if (!(p = (char *)malloc(unit + 1 + ft_neg(n))))
 		return (NULL);
 	while (unit > 0)
 	{

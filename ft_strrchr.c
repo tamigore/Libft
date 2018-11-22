@@ -6,7 +6,7 @@
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 10:27:07 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/12 13:16:21 by tamigore         ###   ########.fr       */
+/*   Updated: 2018/11/19 16:45:25 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strrchr(const char *s, int c)
 	p = NULL;
 	while (j <= i)
 	{
-		if (s[j] == c)
+		if (s[j] == (char)c)
 			p = (char *)&s[j];
 		j++;
 	}

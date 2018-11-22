@@ -6,25 +6,22 @@
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 18:31:48 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/16 14:05:51 by tamigore         ###   ########.fr       */
+/*   Updated: 2018/11/19 16:54:40 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <unistd.h>
 # include <string.h>
-# include <stdlib.h>
-
-# define NEG(x) ((x < 0) ? 1 : 0)
 
 /*
 **	FT_STR
 */
 
 size_t			ft_strlen(const char *s);
-char			*ft_strdup(const char *s1);
+char			*ft_strdup(const char *src);
+char			*ft_strndup(const char *src, int n);
 char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strncpy(char *dst, const char *src, size_t len);
 char			*ft_strcat(char *s1, const char *s2);
@@ -49,6 +46,7 @@ char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
+char			*ft_strrev(char *s);
 
 /*
 **	FT_PUT
@@ -58,6 +56,7 @@ void			ft_putchar(char c);
 void			ft_putstr(char const *s);
 void			ft_putendl(const char *s);
 void			ft_putnbr(int n);
+void			ft_puttab(char **tab);
 void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_putendl_fd(const char *s, int fd);
@@ -90,15 +89,15 @@ void			ft_memdel(void **ap);
 **	OTHERS
 */
 
-int				ft_atoi(char *str);
+int				ft_atoi(const char *str);
 void			ft_bzero(void *s, size_t n);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
 char			*ft_itoa(int n);
+void			ft_sorttab(char **tab);
 
 /*
 **	OPTION
-**char		*ft_strrev(char *s);
 */
 
 typedef	struct	s_list
@@ -112,5 +111,10 @@ t_list			*ft_lstnew(void const *content, size_t content_size);
 void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+void			ft_swap(char *s1, char *s2);
+void			ft_sorttab(char **tab);
 
 #endif

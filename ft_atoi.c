@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/06 13:11:41 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/12 12:46:43 by tamigore         ###   ########.fr       */
+/*   Created: 2018/11/19 10:04:39 by tamigore          #+#    #+#             */
+/*   Updated: 2018/11/19 10:04:53 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(char *str)
+int		ft_atoi(const char *str)
 {
 	int				i;
 	int				neg;
@@ -21,8 +21,6 @@ int		ft_atoi(char *str)
 	i = 0;
 	neg = 1;
 	nb = 0;
-	if (str == 0)
-		return (0);
 	while ((str[i] <= '\r' && str[i] >= '\t') || str[i] == ' ')
 		i++;
 	if (str[i] == '-')

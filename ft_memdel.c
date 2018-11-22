@@ -6,14 +6,17 @@
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 17:49:51 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/14 10:19:53 by tamigore         ###   ########.fr       */
+/*   Updated: 2018/11/19 16:59:27 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 void	ft_memdel(void **ap)
 {
+	if (!ap)
+		return ;
 	free(*ap);
 	*ap = NULL;
 }

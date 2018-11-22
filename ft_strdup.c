@@ -5,26 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 18:41:53 by tamigore          #+#    #+#             */
-/*   Updated: 2018/11/09 16:41:34 by tamigore         ###   ########.fr       */
+/*   Created: 2018/11/19 13:17:24 by tamigore          #+#    #+#             */
+/*   Updated: 2018/11/19 17:04:25 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup(const char *src)
 {
+	char	*copy;
 	int		i;
-	char	*s2;
 
+	i = ft_strlen(src);
+	if (!(copy = (char *)malloc(i + 1)))
+		return (0);
 	i = 0;
-	if (!(s2 = (char *)malloc(ft_strlen(s1) + 1)))
-		return (NULL);
-	while (s1[i])
+	while (src[i])
 	{
-		s2[i] = s1[i];
+		copy[i] = src[i];
 		i++;
 	}
-	s2[i] = '\0';
-	return (s2);
+	copy[i] = '\0';
+	return (copy);
 }
