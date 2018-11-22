@@ -6,7 +6,7 @@
 #    By: tamigore <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 15:04:29 by tamigore          #+#    #+#              #
-#    Updated: 2018/11/12 14:47:25 by tamigore         ###   ########.fr        #
+#    Updated: 2018/11/19 16:04:42 by tamigore         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,16 +14,22 @@ CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
-SRC/M = ft_memccpy.c 	\
-		ft_memmove.c 	\
+SRC/M = ft_memset.c		\
+		ft_memcpy.c 	\
+		ft_memccpy.c 	\
 		ft_memchr.c  	\
-		ft_memcpy.c  	\
-		ft_memset.c
+		ft_memmove.c 	\
+		ft_memalloc.c	\
+		ft_memcmp.c		\
+		ft_memdel.c
 
 SRC/O = ft_atoi.c		\
 		ft_bzero.c		\
 		ft_tolower.c	\
-		ft_toupper.c
+		ft_toupper.c	\
+		ft_itoa.c		\
+		ft_swap.c		\
+		ft_sorttab.c
 
 SRC/I = ft_isalnum.c	\
 		ft_isalpha.c	\
@@ -34,10 +40,16 @@ SRC/I = ft_isalnum.c	\
 SRC/P = ft_putchar.c	\
 		ft_putstr.c		\
 		ft_putendl.c	\
-		ft_putnbr.c
+		ft_putnbr.c		\
+		ft_puttab.c		\
+		ft_putchar_fd.c	\
+		ft_putstr_fd.c	\
+		ft_putendl_fd.c	\
+		ft_putnbr_fd.c
 
 SRC/S = ft_strlen.c		\
 		ft_strdup.c		\
+		ft_strndup.c	\
 		ft_strcpy.c		\
 		ft_strncpy.c	\
 		ft_strcat.c		\
@@ -57,10 +69,22 @@ SRC/S = ft_strlen.c		\
 		ft_striteri.c	\
 		ft_strnew.c		\
 		ft_strdel.c		\
-		ft_strclr.c
+		ft_strclr.c		\
+		ft_strsub.c		\
+		ft_strjoin.c	\
+		ft_strtrim.c	\
+		ft_strsplit.c	\
+		ft_strrev.c
+
+SRC/L = ft_lstnew.c		\
+		ft_lstdelone.c	\
+		ft_lstadd.c		\
+		ft_lstiter.c	\
+		ft_lstdel.c		\
+		ft_lstmap.c
 
 INC = libft.h
-SRC = $(SRC/P) $(SRC/O) $(SRC/I) $(SRC/S) $(SRC/M)
+SRC = $(SRC/P) $(SRC/O) $(SRC/I) $(SRC/S) $(SRC/M) $(SRC/L)
 OBJ = $(SRC:.c=.o)
 NAME = libft.a
 
@@ -73,7 +97,7 @@ $(OBJ) :
 	$(CC) $(FLAGS) -c $(SRC)
 
 clean :
-	rm -rf *.o
+	rm -rf $(OBJ)
 
 fclean : clean
 	rm -rf $(NAME)
