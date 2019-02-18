@@ -15,6 +15,8 @@
 
 # include <string.h>
 
+# define BUFF_SIZE 42
+
 /*
 **	FT_STR
 */
@@ -116,5 +118,6 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 void			ft_swap(char *s1, char *s2);
 void			ft_sorttab(char **tab);
+int             get_next_line(const int fd, char **line);
 
 #endif

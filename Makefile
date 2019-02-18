@@ -29,7 +29,8 @@ SRC/O = ft_atoi.c		\
 		ft_toupper.c	\
 		ft_itoa.c		\
 		ft_swap.c		\
-		ft_sorttab.c
+		ft_sorttab.c    \
+        get_next_line.c
 
 SRC/I = ft_isalnum.c	\
 		ft_isalpha.c	\
@@ -93,7 +94,7 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	ar rc $(NAME) $(OBJ)
 
-$(OBJ) :
+$(OBJ) : $(SRC)
 	$(CC) $(FLAGS) -c $(SRC)
 
 clean :
