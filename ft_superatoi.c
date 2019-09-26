@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_superatoi.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/19 13:17:24 by tamigore          #+#    #+#             */
-/*   Updated: 2019/08/08 17:47:24 by tamigore         ###   ########.fr       */
+/*   Created: 2019/08/13 17:46:16 by tamigore          #+#    #+#             */
+/*   Updated: 2019/08/13 17:50:11 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_strdup(const char *src)
+long long int	ft_superatoi(char *str)
 {
-	char	*copy;
-	int		i;
+	int						i;
+	int						neg;
+	unsigned long long int	nb;
 
-	if (!src)
-		return (NULL);
-	i = ft_strlen(src);
-	if (!(copy = (char *)malloc(i + 1)))
-		return (0);
 	i = 0;
-	while (src[i])
+	neg = 1;
+	nb = 0;
+	while ((str[i] <= '\r' && str[i] >= '\t') || str[i] == ' ')
+		i++;
+	if (str[i] == '-')
 	{
-		copy[i] = src[i];
+		neg = -1;
 		i++;
 	}
-	copy[i] = '\0';
-	return (copy);
+	else if (str[i] == '+')
+		i++;
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
+		nb = nb * 10 + str[i++] - '0';
+	return (nb * neg);
 }

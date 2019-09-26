@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_nbrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/19 13:17:24 by tamigore          #+#    #+#             */
-/*   Updated: 2019/08/08 17:47:24 by tamigore         ###   ########.fr       */
+/*   Created: 2019/08/21 16:59:55 by tamigore          #+#    #+#             */
+/*   Updated: 2019/09/25 21:02:01 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_strdup(const char *src)
+int		ft_nbrlen(long long nbr)
 {
-	char	*copy;
-	int		i;
+	int					i;
+	unsigned long long	nb;
 
-	if (!src)
-		return (NULL);
-	i = ft_strlen(src);
-	if (!(copy = (char *)malloc(i + 1)))
-		return (0);
 	i = 0;
-	while (src[i])
+	if (nbr < 0)
+		nb = nbr * -1;
+	else
+		nb = nbr;
+	if (nbr == 0)
+		return (1);
+	while (nb > 0)
 	{
-		copy[i] = src[i];
+		nb /= 10;
 		i++;
 	}
-	copy[i] = '\0';
-	return (copy);
+	return (i);
 }

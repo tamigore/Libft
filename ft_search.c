@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strsearch.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/19 13:17:24 by tamigore          #+#    #+#             */
-/*   Updated: 2019/08/08 17:47:24 by tamigore         ###   ########.fr       */
+/*   Created: 2019/07/30 17:55:25 by tamigore          #+#    #+#             */
+/*   Updated: 2019/09/25 18:30:56 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*ft_strdup(const char *src)
+int		ft_search(char *str, char c)
 {
-	char	*copy;
-	int		i;
+	int i;
 
-	if (!src)
-		return (NULL);
-	i = ft_strlen(src);
-	if (!(copy = (char *)malloc(i + 1)))
-		return (0);
 	i = 0;
-	while (src[i])
+	while (str[i])
 	{
-		copy[i] = src[i];
+		if (str[i] == c)
+			return (1);
 		i++;
 	}
-	copy[i] = '\0';
-	return (copy);
+	return (0);
 }

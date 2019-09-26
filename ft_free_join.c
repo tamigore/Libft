@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_free_join.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 18:03:25 by tamigore          #+#    #+#             */
-/*   Updated: 2019/08/08 13:58:57 by tamigore         ###   ########.fr       */
+/*   Created: 2019/08/08 15:24:26 by tamigore          #+#    #+#             */
+/*   Updated: 2019/08/08 15:29:33 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+static void	ft_free(int x)
+{
+	if (x == 1)
+		free(s1);
+	else if (x == 2)
+		free(s2);
+	else if (x == 3)
+	{
+		free(s1);
+		free(s2);
+	}
+}
+
+char		*ft_free_join(char const *s1, char const *s2, int x)
 {
 	char	*p;
 	int		i;
@@ -34,10 +47,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		}
 	}
 	if (s2)
-	{
 		while (s2[j])
 			p[i++] = s2[j++];
-	}
 	p[i] = '\0';
+	ft_free(x);
 	return (p);
 }
