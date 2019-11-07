@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsearch.c                                     :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/30 17:55:25 by tamigore          #+#    #+#             */
-/*   Updated: 2019/11/06 15:09:30 by tamigore         ###   ########.fr       */
+/*   Created: 2019/11/04 14:45:32 by tamigore          #+#    #+#             */
+/*   Updated: 2019/11/06 15:04:42 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_search(char *str, char c)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int i;
-
-	i = 0;
-	while (str[i])
+	if (!lst)
+		return (lst);
+	else
 	{
-		if (str[i] == c)
-			return (1);
-		i++;
+		while (lst->next)
+			lst = lst->next;
 	}
-	return (0);
+	return (lst);
 }

@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsearch.c                                     :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/30 17:55:25 by tamigore          #+#    #+#             */
-/*   Updated: 2019/11/06 15:09:30 by tamigore         ###   ########.fr       */
+/*   Created: 2019/11/04 14:44:02 by tamigore          #+#    #+#             */
+/*   Updated: 2019/11/06 15:05:07 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_search(char *str, char c)
+int		ft_lstsize(t_list *lst)
 {
-	int i;
+	int		i;
 
 	i = 0;
-	while (str[i])
+	while (lst)
 	{
-		if (str[i] == c)
-			return (1);
+		lst = lst->next;
 		i++;
 	}
-	return (0);
+	return (i);
 }

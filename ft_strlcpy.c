@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsearch.c                                     :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/30 17:55:25 by tamigore          #+#    #+#             */
-/*   Updated: 2019/11/06 15:09:30 by tamigore         ###   ########.fr       */
+/*   Created: 2019/11/04 11:49:34 by tamigore          #+#    #+#             */
+/*   Updated: 2019/11/07 12:23:34 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_search(char *str, char c)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	int i;
+	size_t	i;
 
 	i = 0;
-	while (str[i])
+	if (!dst && !src)
+		return (0);
+	while (src[i] && i < dstsize - 1)
 	{
-		if (str[i] == c)
-			return (1);
+		dst[i] = src[i];
 		i++;
 	}
-	return (0);
+	if (dstsize > 0)
+		dst[i] = '\0';
+	return (ft_strlen(src));
 }

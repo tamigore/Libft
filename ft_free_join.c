@@ -6,12 +6,11 @@
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/08 15:24:26 by tamigore          #+#    #+#             */
-/*   Updated: 2019/08/08 15:29:33 by tamigore         ###   ########.fr       */
+/*   Updated: 2019/11/06 15:03:00 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 static void	ft_free(int x)
 {

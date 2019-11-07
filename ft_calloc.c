@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsearch.c                                     :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/30 17:55:25 by tamigore          #+#    #+#             */
-/*   Updated: 2019/11/06 15:09:30 by tamigore         ###   ########.fr       */
+/*   Created: 2019/11/04 13:38:32 by tamigore          #+#    #+#             */
+/*   Updated: 2019/11/06 15:02:45 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_search(char *str, char c)
+void	*ft_calloc(size_t count, size_t size)
 {
-	int i;
+	void	*ptr;
 
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == c)
-			return (1);
-		i++;
-	}
-	return (0);
+	if (!(ptr = (void *)malloc(sizeof(void) * size * count)))
+		return (NULL);
+	if (!(ptr = ft_memset(ptr, 0, count * size)))
+		return (NULL);
+	return (ptr);
 }

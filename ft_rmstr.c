@@ -6,12 +6,11 @@
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/08 15:02:21 by tamigore          #+#    #+#             */
-/*   Updated: 2019/08/08 15:02:37 by tamigore         ###   ########.fr       */
+/*   Updated: 2019/11/06 15:09:23 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 char	*ft_rmstr(char *str, int i, int j)
 {
