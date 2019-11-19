@@ -6,7 +6,7 @@
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 18:31:48 by tamigore          #+#    #+#             */
-/*   Updated: 2019/11/07 17:24:06 by tamigore         ###   ########.fr       */
+/*   Updated: 2019/11/19 13:58:50 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,14 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdarg.h>
-# include <limits.h>
-# include <stdio.h>
+
+# define BUFFER_SIZE 42
 
 /*
 **	FT_STR
 */
 
-int				ft_strlen(const char *s);
+size_t			ft_strlen(const char *s);
 char			*ft_strdup(const char *src);
 char			*ft_strndup(const char *src, int n);
 char			*ft_strcpy(char *dst, const char *src);
@@ -48,12 +47,11 @@ void			ft_striteri(char *s, void (*f)(unsigned int, char *));
 char			*ft_strnew(size_t size);
 void			ft_strdel(char **as);
 void			ft_strclr(char *s);
-char			*ft_strsub(char const *s, unsigned int start, size_t len);
-char			*ft_strjoin(char const *s1, char const *s2);
-char			*ft_strtrim(char const *s);
-char			*ft_strrev(char *s);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
-char			*ft_safejoin(char *s1, char *s2, int i);
+char			*ft_strjoin(char const *s1, char const *s2);
+char			*ft_strtrim(char const *s1, char const *set);
+char			**ft_split(char const *s, char c);
+char			*ft_strrev(char *s);
 
 /*
 **	FT_PUT
@@ -91,7 +89,6 @@ void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memalloc(size_t size);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 void			ft_memdel(void **ap);
-void			*ft_calloc(size_t count, size_t size);
 
 /*
 **	OTHERS
@@ -117,22 +114,30 @@ typedef	struct	s_list
 }				t_list;
 
 t_list			*ft_lstnew(void *content);
-void			ft_lstadd_front(t_list **alst, t_list *new);
+void			ft_lstadd_front(t_list **alst, t_list *newlst);
 int				ft_lstsize(t_list *lst);
 t_list			*ft_lstlast(t_list *lst);
-void			ft_lstadd_back(t_list **alst, t_list *new);
+void			ft_lstadd_back(t_list **alst, t_list *newlst);
 void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*));
 
-char			**ft_split(char const *s, char c);
+typedef	struct	s_lst
+{
+	void			*content;
+	size_t			fd;
+	struct s_lst	*next;
+}				t_lst;
+
 void			ft_swap(char *s1, char *s2);
 void			ft_sorttab(char **tab);
+int				get_next_line(const int fd, char **line);
 int				ft_search(char *str, char c);
 char			*ft_rmstr(char *str, int i, int j);
 char			*ft_rmchar(char *str, char c);
 char			*ft_free_rmstr(char *str, int i, int j);
 char			*ft_free_rmchar(char *str, char c);
+char			*ft_free_join(char *s1, char *s2, int x);
 
 #endif

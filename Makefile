@@ -6,7 +6,7 @@
 #    By: tamigore <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 15:04:29 by tamigore          #+#    #+#              #
-#    Updated: 2019/11/07 17:25:46 by tamigore         ###   ########.fr        #
+#    Updated: 2019/11/19 13:55:56 by tamigore         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,23 +21,24 @@ SRC/M = ft_memset.c		\
 		ft_memmove.c 	\
 		ft_memalloc.c	\
 		ft_memcmp.c		\
-		ft_memdel.c		\
-		ft_calloc.c
+		ft_memdel.c
 
 SRC/O = ft_atoi.c		\
-		ft_split.c		\
 		ft_superatoi.c	\
 		ft_bzero.c		\
 		ft_tolower.c	\
 		ft_toupper.c	\
 		ft_itoa.c		\
 		ft_swap.c		\
-		ft_sorttab.c    \
+		ft_sorttab.c	\
+		get_next_line.c	\
 		ft_rmstr.c		\
 		ft_rmchar.c		\
 		ft_nbrlen.c		\
+		ft_free_join.c	\
 		ft_free_rmstr.c	\
-		ft_free_rmchar.c
+		ft_free_rmchar.c\
+		ft_calloc.c
 
 SRC/I = ft_isalnum.c	\
 		ft_isalpha.c	\
@@ -79,25 +80,24 @@ SRC/S = ft_strlen.c		\
 		ft_strnew.c		\
 		ft_strdel.c		\
 		ft_strclr.c		\
-		ft_strsub.c		\
+		ft_substr.c		\
 		ft_strjoin.c	\
 		ft_strtrim.c	\
+		ft_split.c		\
 		ft_strrev.c		\
-		ft_search.c		\
-		ft_substr.c		\
-		ft_safejoin.c
+		ft_search.c
 
 SRC/L = ft_lstnew.c			\
-		ft_lstadd_front.c	\
-		ft_lstsize.c		\
-		ft_lstlast.c		\
-		ft_lstadd_back.c	\
 		ft_lstdelone.c		\
-		ft_lstclear.c		\
+		ft_lstadd_back.c	\
+		ft_lstadd_front.c	\
 		ft_lstiter.c		\
-		ft_lstmap.c
+		ft_lstmap.c			\
+		ft_lstclear.c		\
+		ft_lstlast.c		\
+		ft_lstsize.c
 
-INC = includes
+INC = libft.h
 SRC = $(SRC/P) $(SRC/O) $(SRC/I) $(SRC/S) $(SRC/M) $(SRC/L)
 OBJ = $(SRC:.c=.o)
 NAME = libft.a
@@ -106,10 +106,9 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
 
 $(OBJ) : $(SRC)
-	$(CC) $(FLAGS) -I $(INC) -c $(SRC)
+	$(CC) $(FLAGS) -c $(SRC)
 
 clean :
 	rm -rf $(OBJ)

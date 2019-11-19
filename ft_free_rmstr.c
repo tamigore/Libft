@@ -6,11 +6,12 @@
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/08 14:40:19 by tamigore          #+#    #+#             */
-/*   Updated: 2019/11/06 15:03:19 by tamigore         ###   ########.fr       */
+/*   Updated: 2019/08/08 15:02:54 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 char	*ft_free_rmstr(char *str, int i, int j)
 {

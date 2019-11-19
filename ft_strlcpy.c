@@ -6,7 +6,7 @@
 /*   By: tamigore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/04 11:49:34 by tamigore          #+#    #+#             */
-/*   Updated: 2019/11/07 12:23:34 by tamigore         ###   ########.fr       */
+/*   Updated: 2019/11/11 20:30:35 by tamigore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	i = 0;
 	if (!dst && !src)
 		return (0);
-	while (src[i] && i < dstsize - 1)
+	while (src[i] && i + 1 < dstsize)
 	{
 		dst[i] = src[i];
 		i++;
