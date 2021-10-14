@@ -68,7 +68,6 @@ static char	*ft_free(char *content, int r, char *buf)
 
 static int	read_to_join(t_lst *list, int fd, int r, char *buf)
 {
-	r = read(fd, buf, BUFFER_SIZE);
 	while (r > 0)
 	{
 		buf[r] = '\0';
@@ -94,6 +93,7 @@ int	get_next_line(int fd, char **line)
 	list = ft_file(&file, fd);
 	if (fd < 0 || !buf || read(fd, buf, 0) == -1 || !list || !line)
 		return (-1);
+	r = read(fd, buf, BUFFER_SIZE);
 	r = read_to_join(list, fd, r, buf);
 	if (r == -1)
 		return (-1);

@@ -22,7 +22,7 @@ static	void	ft_free_all(char **tab, int x)
 	free(tab);
 }
 
-static	int	add_space_to_tab(char **tab, int i, int j, int *x)
+static	int	add_space_to_tab(char **tab, int j, int *x)
 {
 	tab[*x] = (char *)malloc(j + 1);
 	if (!tab[*x])
@@ -49,7 +49,7 @@ static	char	**ft_malloctab(char **tab, const char *s, char c, int x)
 			i++;
 		}
 		if (j != 0)
-			if (!add_space_to_tab(tab, i, j, x))
+			if (!add_space_to_tab(tab, j, &x))
 				return (NULL);
 		if (s[i])
 			i++;

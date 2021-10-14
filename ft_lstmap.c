@@ -14,7 +14,6 @@
 
 static	int	init(t_list *p, t_list *tmp, t_list *lst, void (*del)(void *))
 {
-	p = ft_lstnew(f(lst->content));
 	if (!p)
 	{
 		ft_lstclear(&lst, del);
@@ -31,12 +30,14 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 	if (!lst || !f)
 		return (NULL);
+	tmp = NULL;
+	p = ft_lstnew((*f)(lst->content));
 	if (!init(p, tmp, lst, del))
 		return (NULL);
 	lst = lst->next;
 	while (lst)
 	{
-		p->next = ft_lstnew(f(lst->content));
+		p->next = ft_lstnew((*f)(lst->content));
 		if (!p->next)
 		{
 			ft_lstclear(&lst, del);
