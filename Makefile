@@ -3,119 +3,88 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tamigore <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: tamigore <tamigore@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/11/08 15:04:29 by tamigore          #+#    #+#              #
-#    Updated: 2021/10/24 18:28:26 by tamigore         ###   ########.fr        #
+#    Created: 2025/09/15 17:12:07 by tamigore          #+#    #+#              #
+#    Updated: 2025/09/15 17:20:13 by tamigore         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = clang
+################################################################################
+#                               Filename output                                #
+################################################################################
 
-FLAGS = -Wall -Wextra -Werror
+NAME        = libft.a
 
-SRC/M = ft_memset.c		\
-		ft_memcpy.c 	\
-		ft_memccpy.c 	\
-		ft_memchr.c  	\
-		ft_memmove.c 	\
-		ft_memalloc.c	\
-		ft_memcmp.c		\
-		ft_memdel.c
+################################################################################
+#                               Sources filenames                              #
+################################################################################
 
-SRC/O = ft_atoi.c		\
-		ft_superatoi.c	\
-		ft_bzero.c		\
-		ft_tolower.c	\
-		ft_toupper.c	\
-		ft_itoa.c		\
-		ft_swap.c		\
-		ft_sorttab.c	\
-		get_next_line.c	\
-		ft_rmstr.c		\
-		ft_rmchar.c		\
-		ft_nbrlen.c		\
-		ft_free_join.c	\
-		ft_free_rmstr.c	\
-		ft_free_rmchar.c\
-		ft_calloc.c		\
-		ft_count_char.c
+SRCS_DIR    = sources
+OBJS_DIR    = objects
+DEPS_DIR    = $(OBJS_DIR)
+C_FILES     = $(shell find $(SRCS_DIR) -name '*.c')
+C_OBJS      = $(patsubst $(SRCS_DIR)/%.c,$(OBJS_DIR)/%.o,$(C_FILES))
 
-SRC/I = ft_isalnum.c	\
-		ft_isalpha.c	\
-		ft_isascii.c	\
-		ft_isdigit.c	\
-		ft_isprint.c
+################################################################################
+#                              Commands and arguments                          #
+################################################################################
 
-SRC/P = ft_putchar.c	\
-		ft_putstr.c		\
-		ft_putendl.c	\
-		ft_putnbr.c		\
-		ft_puttab.c		\
-		ft_putchar_fd.c	\
-		ft_putstr_fd.c	\
-		ft_putendl_fd.c	\
-		ft_putnbr_fd.c
+CC          = gcc
+CFLAGS      = -Iincludes -Wall -Wextra -Werror
+RM          = rm -rf
 
-SRC/S = ft_strlen.c		\
-		ft_strdup.c		\
-		ft_strndup.c	\
-		ft_strcpy.c		\
-		ft_strncpy.c	\
-		ft_strlcpy.c	\
-		ft_strcat.c		\
-		ft_strncat.c	\
-		ft_strlcat.c	\
-		ft_strstr.c		\
-		ft_strnstr.c	\
-		ft_strchr.c		\
-		ft_strrchr.c	\
-		ft_strcmp.c		\
-		ft_strncmp.c	\
-		ft_strequ.c		\
-		ft_strnequ.c	\
-		ft_strmap.c		\
-		ft_strmapi.c	\
-		ft_striter.c	\
-		ft_striteri.c	\
-		ft_strnew.c		\
-		ft_strdel.c		\
-		ft_strclr.c		\
-		ft_substr.c		\
-		ft_strjoin.c	\
-		ft_strnjoin.c	\
-		ft_strtrim.c	\
-		ft_split.c		\
-		ft_strrev.c		\
-		ft_search.c
+################################################################################
+#                                 Defining colors                              #
+################################################################################
 
-SRC/L = ft_lstnew.c			\
-		ft_lstdelone.c		\
-		ft_lstadd_back.c	\
-		ft_lstadd_front.c	\
-		ft_lstiter.c		\
-		ft_lstmap.c			\
-		ft_lstclear.c		\
-		ft_lstlast.c		\
-		ft_lstsize.c
+_RED        = \033[31m
+_GREEN      = \033[32m
+_YELLOW     = \033[33m
+_CYAN       = \033[96m
+_NC         = \033[0m
 
-INC = libft.h
-SRC = $(SRC/P) $(SRC/O) $(SRC/I) $(SRC/S) $(SRC/M) $(SRC/L)
-OBJ = $(SRC:.c=.o)
-NAME = libft.a
+################################################################################
+#                                    Objects                                   #
+################################################################################
 
-all : $(NAME)
+$(shell mkdir -p $(sort $(dir $(C_OBJS))))
 
-$(NAME) : $(OBJ)
-	ar rc $(NAME) $(OBJ)
+$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
+	@ echo "\t$(_YELLOW) compiling... $*.c$(_NC)"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJ) : $(SRC)
-	$(CC) $(FLAGS) -c $(SRC)
+################################################################################
+#                                  Dependances                                 #
+################################################################################
 
-clean :
-	rm -rf $(OBJ)
+C_DEPS      = $(patsubst $(OBJS_DIR)/%.o,$(DEPS_DIR)/%.d,$(C_OBJS))
+DEP_FILES   = $(C_DEPS)
 
-fclean : clean
-	rm -rf $(NAME)
+$(shell mkdir -p $(sort $(dir $(DEP_FILES))))
 
-re : fclean all
+-include $(DEP_FILES)
+
+################################################################################
+#                                   Command                                    #
+################################################################################
+
+all: $(NAME)
+
+$(NAME): $(C_OBJS)
+	@ echo "\t$(_YELLOW)[Creating static library]$(_NC)"
+	@ ar rc -o $(NAME) $(C_OBJS)
+	@ echo "$(_GREEN)[library created & ready]$(_NC)"
+
+clean:
+	@ echo "$(_RED)[cleaning up objects files]$(_NC)"
+	@$(RM) $(OBJS_DIR)
+	@$(RM) $(DEPS_DIR)
+
+fclean: clean
+	@ echo "$(_RED)[cleaning up library files]$(_NC)"
+	@$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
